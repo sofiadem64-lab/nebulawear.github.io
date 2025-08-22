@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tienda - Nébula's Wear</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<h1>Tienda</h1>
+<div class="producto">
+    <div class="image-container">
+        <img src="images/gorra.jpg" class="product-image" alt="Gorra Urbana">
+    </div>
+    <div class="detalle-producto">
+        <h2>Gorra Urbana</h2>
+        <p>$25</p>
+        <input type="number" id="cantidad1" value="1" min="1">
+        <button onclick="agregarCarrito('Gorra Urbana', 'cantidad1')">Comprar</button>
+    </div>
+</div>
+
+<div class="producto">
+    <div class="image-container">
+        <img src="images/gorra1.jpg" class="product-image" alt="Gorra Street">
+    </div>
+    <div class="detalle-producto">
+        <h2>Gorra Street</h2>
+        <p>$30</p>
+        <input type="number" id="cantidad2" value="1" min="1">
+        <button onclick="agregarCarrito('Gorra Street', 'cantidad2')">Comprar</button>
+    </div>
+</div>
+
+<a href="carrito.html"><button>Ver Carrito</button></a>
+</body>
+</html>
