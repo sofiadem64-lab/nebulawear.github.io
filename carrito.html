@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carrito - Nébula's Wear</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<h1>Carrito de Compras</h1>
+
+<div class="cart-item">
+  <p>Gorra Urbana - Cantidad: <input type="number" id="cantidad1" value="1" min="1"></p>
+</div>
+
+<div class="cart-item">
+  <p>Gorra Street - Cantidad: <input type="number" id="cantidad2" value="1" min="1"></p>
+</div>
+
+<button id="checkoutBtn">Finalizar Compra</button>
+
+<script>
+document.getElementById("checkoutBtn").addEventListener("click", async function() {
+    const nombre = prompt("Ingresa tu nombre");
+    const correo = prompt("Ingresa tu correo");
+
+    const items = [
+        { nombre: "Gorra Urbana", cantidad: document.getElementById("cantidad1").value },
+        { nombre: "Gorra Street", cantidad: document.getElementById("cantidad2").value }
+    ];
+
+    const response = await fetch("https://TU_PROYECTO_VERCEL.vercel.app/api/pedido", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, correo, items })
+    });
+
+    if(response.ok) {
+        alert("¡Pedido enviado automáticamente!");
+        window.location.href = "gracias.html";
+    } else {
+        alert("Ocurrió un error, inténtalo de nuevo.");
+    }
+});
+</script>
+</body>
+</html>
